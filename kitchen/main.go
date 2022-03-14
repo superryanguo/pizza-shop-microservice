@@ -6,6 +6,12 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/gin-gonic/gin"
+	"github.com/go-redis/redis/v8"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/golang/glog"
+	"github.com/joho/godotenv"
+	"github.com/streadway/amqp"
 	"github.com/superryanguo/kitchen/cooks"
 	implementation "github.com/superryanguo/kitchen/implementation"
 	"github.com/superryanguo/kitchen/inmemorydb"
@@ -16,12 +22,6 @@ import (
 	"github.com/superryanguo/kitchen/redisclient"
 	"github.com/superryanguo/kitchen/seeder"
 	"github.com/superryanguo/kitchen/shared"
-	"github.com/gin-gonic/gin"
-	"github.com/go-redis/redis/v8"
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/golang/glog"
-	"github.com/joho/godotenv"
-	"github.com/streadway/amqp"
 )
 
 func main() {
@@ -58,6 +58,7 @@ func main() {
 	// Msg queue
 
 	rabbitMqConnection, err := amqp.Dial(os.Getenv("RABBIT_MQ_CONNECTION_STRING"))
+	glog.Info("Kitchen Connection string is....", os.Getenv("RABBIT_MQ_CONNECTION_STRING"))
 	if err != nil {
 		glog.Fatalf("Unable to connect to rabbit mq %f", err)
 	}
@@ -114,7 +115,7 @@ func main() {
 
 	var processOrderSvc processes.OrderProcessService
 	{
-		processOrderSvc = implementation.NewProcessOrderImplementationService(cookservice, processUpdateService, orderRequestInmemoryService,queueRepo)
+		processOrderSvc = implementation.NewProcessOrderImplementationService(cookservice, processUpdateService, orderRequestInmemoryService, queueRepo)
 	}
 
 	var orderRequestsvc processes.OrderRequestService

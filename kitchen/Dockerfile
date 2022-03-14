@@ -17,6 +17,7 @@ ENV SEEDING_ENABLED "false"
 ENV REDIS_HOST "redis"
 ENV REDIS_PORT "6379"
 ENV PORT "8003"
+ENV GOPROXY "goproxy.cn"
 # Download all the dependencies
 RUN go get -d -v ./...
 

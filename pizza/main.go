@@ -7,17 +7,20 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/streadway/amqp"
 	"github.com/superryanguo/pizza/clients"
 	"github.com/superryanguo/pizza/message_queue"
 	"github.com/superryanguo/pizza/migrations"
 	"github.com/superryanguo/pizza/pizza/services"
-	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/streadway/amqp"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"
 
+	"github.com/gin-gonic/gin"
+	"github.com/go-redis/redis/v8"
+	"github.com/golang/glog"
 	"github.com/superryanguo/pizza/handlers"
 	rabbitmq "github.com/superryanguo/pizza/message_queue/implementation/rabbitmq"
 	"github.com/superryanguo/pizza/middlewares"
@@ -29,9 +32,6 @@ import (
 	implementation "github.com/superryanguo/pizza/users/implementation"
 	"github.com/superryanguo/pizza/users/repositories"
 	"github.com/superryanguo/pizza/users/utils"
-	"github.com/gin-gonic/gin"
-	"github.com/go-redis/redis/v8"
-	"github.com/golang/glog"
 )
 
 func prometheusHandler() gin.HandlerFunc {
@@ -47,7 +47,7 @@ func main() {
 	var db *sql.DB
 	{
 		var err error
-		err = godotenv.Load()
+		err = godotenv.Load() //TODO: looks not necessary
 		if err != nil {
 			glog.Fatalf("Unable to load environment variables")
 		}

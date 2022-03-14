@@ -30,6 +30,7 @@ services:
     container_name: kitchen_api
     restart: on-failure
     networks:
+      - pizzashare
       - kitchen-network
     ports:
       - 8003:8003
@@ -40,6 +41,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
 networks:
+  pizzashare:
+    external:
+      name: pizza_pizza-default
+
   kitchen-network:
     driver: bridge
 
