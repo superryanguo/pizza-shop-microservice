@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/VarthanV/pizza/message_queue"
-	"github.com/VarthanV/pizza/pizza"
+	"github.com/superryanguo/pizza/message_queue"
+	"github.com/superryanguo/pizza/pizza"
 	"github.com/golang/glog"
 )
 

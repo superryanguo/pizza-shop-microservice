@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/VarthanV/pizza/pizza"
+	"github.com/superryanguo/pizza/pizza"
 	"github.com/golang/glog"
 )
 

@@ -2,8 +2,8 @@ package implementation
 
 import (
 	"context"
-	"github.com/VarthanV/pizza/pizza/models"
-	"github.com/VarthanV/pizza/pizza/services"
+	"github.com/superryanguo/pizza/pizza/models"
+	"github.com/superryanguo/pizza/pizza/services"
 )
 
 type orderitemservice struct {

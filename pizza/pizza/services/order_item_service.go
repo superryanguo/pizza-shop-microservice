@@ -2,7 +2,7 @@ package services
 
 import (
 	"context"
-	"github.com/VarthanV/pizza/pizza/models"
+	"github.com/superryanguo/pizza/pizza/models"
 )
 
 type OrderItemService interface {

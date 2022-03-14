@@ -3,8 +3,8 @@ package implementation
 import (
 	"context"
 
-	"github.com/VarthanV/pizza/users"
-	"github.com/VarthanV/pizza/users/models"
+	"github.com/superryanguo/pizza/users"
+	"github.com/superryanguo/pizza/users/models"
 )
 
 type tokenservice struct {

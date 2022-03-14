@@ -4,9 +4,9 @@ import (
 	"context"
 	"errors"
 
-	"github.com/VarthanV/pizza/users"
-	"github.com/VarthanV/pizza/users/models"
-	"github.com/VarthanV/pizza/users/utils"
+	"github.com/superryanguo/pizza/users"
+	"github.com/superryanguo/pizza/users/models"
+	"github.com/superryanguo/pizza/users/utils"
 	"github.com/golang/glog"
 	"github.com/google/uuid"
 )

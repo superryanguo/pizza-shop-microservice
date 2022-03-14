@@ -3,8 +3,8 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/VarthanV/pizza/users"
-	"github.com/VarthanV/pizza/users/models"
+	"github.com/superryanguo/pizza/users"
+	"github.com/superryanguo/pizza/users/models"
 	"github.com/gin-gonic/gin"
 	"github.com/golang/glog"
 )

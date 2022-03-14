@@ -5,8 +5,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"time"
 
-	"github.com/VarthanV/pizza/shared"
-	"github.com/VarthanV/pizza/users/models"
+	"github.com/superryanguo/pizza/shared"
+	"github.com/superryanguo/pizza/users/models"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/golang/glog"
 	"github.com/google/uuid"

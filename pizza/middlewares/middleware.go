@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/VarthanV/pizza/shared"
-	"github.com/VarthanV/pizza/users"
+	"github.com/superryanguo/pizza/shared"
+	"github.com/superryanguo/pizza/users"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/golang/glog"

@@ -4,9 +4,9 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/VarthanV/kitchen/inmemorydb"
-	"github.com/VarthanV/kitchen/queue"
-	"github.com/VarthanV/kitchen/shared"
+	"github.com/superryanguo/kitchen/inmemorydb"
+	"github.com/superryanguo/kitchen/queue"
+	"github.com/superryanguo/kitchen/shared"
 	"github.com/golang/glog"
 )
 

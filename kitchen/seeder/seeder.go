@@ -3,7 +3,7 @@ package seeder
 import (
 	"database/sql"
 
-	"github.com/VarthanV/kitchen/cooks/models"
+	"github.com/superryanguo/kitchen/cooks/models"
 	"github.com/golang/glog"
 )
 

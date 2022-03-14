@@ -3,8 +3,8 @@ package implementation
 import (
 	"context"
 
-	"github.com/VarthanV/pizza/pizza"
-	"github.com/VarthanV/pizza/pizza/models"
+	"github.com/superryanguo/pizza/pizza"
+	"github.com/superryanguo/pizza/pizza/models"
 )
 
 type pizzaservice struct {

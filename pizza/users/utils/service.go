@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/VarthanV/pizza/users/models"
+	"github.com/superryanguo/pizza/users/models"
 	"github.com/gin-gonic/gin"
 )
 

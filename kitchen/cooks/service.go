@@ -3,7 +3,7 @@ package cooks
 import (
 	"context"
 
-	"github.com/VarthanV/kitchen/cooks/models"
+	"github.com/superryanguo/kitchen/cooks/models"
 )
 
 type Service interface {

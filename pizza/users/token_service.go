@@ -3,7 +3,7 @@ package users
 import (
 	"context"
 
-	"github.com/VarthanV/pizza/users/models"
+	"github.com/superryanguo/pizza/users/models"
 )
 
 type TokenService interface {

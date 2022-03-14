@@ -4,9 +4,9 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/VarthanV/kitchen/processes"
-	"github.com/VarthanV/kitchen/queue"
-	"github.com/VarthanV/kitchen/shared"
+	"github.com/superryanguo/kitchen/processes"
+	"github.com/superryanguo/kitchen/queue"
+	"github.com/superryanguo/kitchen/shared"
 	"github.com/golang/glog"
 )
 

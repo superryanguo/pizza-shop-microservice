@@ -2,7 +2,7 @@ package pizza
 
 import "context"
 
-import "github.com/VarthanV/pizza/pizza/models"
+import "github.com/superryanguo/pizza/pizza/models"
 
 type OrderService interface {
 	CreateOrder(ctx context.Context, userID string) (err error)

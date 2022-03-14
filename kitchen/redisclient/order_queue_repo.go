@@ -3,7 +3,7 @@ package redisclient
 import (
 	"context"
 
-	"github.com/VarthanV/kitchen/inmemorydb"
+	"github.com/superryanguo/kitchen/inmemorydb"
 	"github.com/go-redis/redis/v8"
 	"github.com/golang/glog"
 )

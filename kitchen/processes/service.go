@@ -3,7 +3,7 @@ package processes
 import (
 	"context"
 
-	"github.com/VarthanV/kitchen/queue"
+	"github.com/superryanguo/kitchen/queue"
 )
 
 type OrderProcessUpdateService interface {

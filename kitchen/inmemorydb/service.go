@@ -3,7 +3,7 @@ package inmemorydb
 import (
 	"context"
 
-	"github.com/VarthanV/kitchen/queue"
+	"github.com/superryanguo/kitchen/queue"
 )
 
 type OrderRequestInMemoryService interface {

@@ -3,9 +3,9 @@ package implementation
 import (
 	"context"
 	"errors"
-	"github.com/VarthanV/pizza/pizza"
-	"github.com/VarthanV/pizza/pizza/models"
-	"github.com/VarthanV/pizza/pizza/services"
+	"github.com/superryanguo/pizza/pizza"
+	"github.com/superryanguo/pizza/pizza/models"
+	"github.com/superryanguo/pizza/pizza/services"
 	"github.com/golang/glog"
 )
 

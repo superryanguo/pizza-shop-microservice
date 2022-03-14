@@ -3,10 +3,10 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/VarthanV/pizza/clients"
-	"github.com/VarthanV/pizza/pizza"
-	"github.com/VarthanV/pizza/pizza/services"
-	"github.com/VarthanV/pizza/users/utils"
+	"github.com/superryanguo/pizza/clients"
+	"github.com/superryanguo/pizza/pizza"
+	"github.com/superryanguo/pizza/pizza/services"
+	"github.com/superryanguo/pizza/users/utils"
 	"github.com/gin-gonic/gin"
 )
 

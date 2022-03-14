@@ -4,11 +4,11 @@ import (
 	"context"
 	"time"
 
-	"github.com/VarthanV/kitchen/cooks"
-	"github.com/VarthanV/kitchen/inmemorydb"
-	"github.com/VarthanV/kitchen/processes"
-	"github.com/VarthanV/kitchen/queue"
-	"github.com/VarthanV/kitchen/shared"
+	"github.com/superryanguo/kitchen/cooks"
+	"github.com/superryanguo/kitchen/inmemorydb"
+	"github.com/superryanguo/kitchen/processes"
+	"github.com/superryanguo/kitchen/queue"
+	"github.com/superryanguo/kitchen/shared"
 	"github.com/golang/glog"
 )
 

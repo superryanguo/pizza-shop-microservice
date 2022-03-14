@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"errors"
 
-	"github.com/VarthanV/pizza/pizza/models"
+	"github.com/superryanguo/pizza/pizza/models"
 	"github.com/golang/glog"
 )
 

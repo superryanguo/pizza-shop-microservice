@@ -12,7 +12,7 @@ ENV DB_USERNAME "root"
 ENV DB_PASSWORD "root1234"
 ENV DB_PORT 3306
 ENV DB_HOST "mysql"
-ENV RABBIT_MQ_CONNECTION_STRING  "amqp://guest:guest@host.docker.internal/" 
+ENV RABBIT_MQ_CONNECTION_STRING  "amqp://guest:guest@pizza_rmq/" 
 ENV SEEDING_ENABLED "false"
 ENV REDIS_HOST "redis"
 ENV REDIS_PORT "6379"

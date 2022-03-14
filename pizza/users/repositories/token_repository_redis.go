@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/VarthanV/pizza/users/models"
-	"github.com/VarthanV/pizza/users/utils"
+	"github.com/superryanguo/pizza/users/models"
+	"github.com/superryanguo/pizza/users/utils"
 	"github.com/go-redis/redis/v8"
 	"github.com/golang/glog"
 )

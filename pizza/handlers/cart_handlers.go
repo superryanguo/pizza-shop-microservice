@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"fmt"
-	"github.com/VarthanV/pizza/pizza/services"
+	"github.com/superryanguo/pizza/pizza/services"
 	"github.com/gin-gonic/gin"
 	"github.com/golang/glog"
 	"net/http"
