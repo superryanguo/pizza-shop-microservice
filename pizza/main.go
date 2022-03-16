@@ -49,7 +49,7 @@ func main() {
 		var err error
 		err = godotenv.Load() //TODO: looks not necessary
 		if err != nil {
-			glog.Fatalf("Unable to load environment variables")
+			glog.Fatalf("Unable to load environment variables", err)
 		}
 		// Initializing DB Constants
 		dbConnection := shared.DBConnection{
@@ -72,8 +72,7 @@ func main() {
 			glog.Fatalf("Unable to connect to db...", err)
 			os.Exit(-1)
 		} else {
-			err = db.Ping()
-			glog.Info("Error from ping is..", err)
+			glog.Info("Error from ping is..", db.Ping())
 		}
 	}
 	glog.Info("Init Tables...")

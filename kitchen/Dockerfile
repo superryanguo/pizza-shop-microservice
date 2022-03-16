@@ -1,7 +1,7 @@
 FROM golang:1.15
 
 # Set the Current Working Directory inside the container
-WORKDIR $GOPATH/src/github.com/VarthanV/kitchen
+WORKDIR $GOPATH/src/github.com/superryanguo/kitchen
 
 # Copy everything from the current directory to the PWD (Present Working Directory) inside the container
 COPY . .

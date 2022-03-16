@@ -1,4 +1,4 @@
-module github.com/VarthanV/pizza
+module github.com/superryanguo/pizza
 
 go 1.15
 

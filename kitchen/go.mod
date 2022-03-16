@@ -1,4 +1,4 @@
-module github.com/VarthanV/kitchen
+module github.com/superryanguo/kitchen
 
 go 1.15
 
