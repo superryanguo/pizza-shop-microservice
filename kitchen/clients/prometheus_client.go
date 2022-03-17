@@ -25,5 +25,5 @@ func (p prometheusClient) RecordCompletedOrders() {
 }
 
 func (p prometheusClient) RegisterMetrics() {
-	prometheus.Register(totalNumberOfOrders)
+	prometheus.Register(totalCompletedOrders)
 }

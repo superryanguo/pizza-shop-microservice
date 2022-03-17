@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
@@ -14,6 +15,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/streadway/amqp"
+	"github.com/superryanguo/kitchen/clients"
 	"github.com/superryanguo/kitchen/cooks"
 	implementation "github.com/superryanguo/kitchen/implementation"
 	"github.com/superryanguo/kitchen/inmemorydb"

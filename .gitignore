@@ -1,2 +1,4 @@
 *.swp
 *.swo
+kitchen/kitchen
+pizza/pizza
