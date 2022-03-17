@@ -11,6 +11,8 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/golang/glog"
 	"github.com/joho/godotenv"
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/streadway/amqp"
 	"github.com/superryanguo/kitchen/cooks"
 	implementation "github.com/superryanguo/kitchen/implementation"
@@ -24,7 +26,16 @@ import (
 	"github.com/superryanguo/kitchen/shared"
 )
 
+func prometheusHandler() gin.HandlerFunc {
+	h := promhttp.Handler()
+
+	return func(c *gin.Context) {
+		h.ServeHTTP(c.Writer, c.Request)
+	}
+}
+
 func main() {
+	prometheusClient := clients.NewPrometheusClient()
 	var db *sql.DB
 	{
 		var err error
@@ -115,7 +126,7 @@ func main() {
 
 	var processOrderSvc processes.OrderProcessService
 	{
-		processOrderSvc = implementation.NewProcessOrderImplementationService(cookservice, processUpdateService, orderRequestInmemoryService, queueRepo)
+		processOrderSvc = implementation.NewProcessOrderImplementationService(cookservice, processUpdateService, orderRequestInmemoryService, queueRepo, prometheusClient)
 	}
 
 	var orderRequestsvc processes.OrderRequestService
@@ -129,7 +140,17 @@ func main() {
 	}
 
 	r := gin.Default()
+
+	var responseStatus = prometheus.NewCounterVec(
+		prometheus.CounterOpts{
+			Name: "response_status",
+			Help: "Status of HTTP response",
+		},
+		[]string{"status"},
+	)
+	r.GET("/metrics", prometheusHandler())
 	r.GET("/ping", func(c *gin.Context) {
+		responseStatus.WithLabelValues(strconv.Itoa(200)).Inc()
 		c.JSON(200, gin.H{
 			"message": "pong",
 		})
@@ -137,5 +158,7 @@ func main() {
 
 	ctx := context.Background()
 	queueService.ConsumeOrderDetails(ctx)
-	r.Run()
+	prometheus.MustRegister(responseStatus)
+	prometheusClient.RegisterMetrics()
+	r.Run(os.Getenv("PORT"))
 }

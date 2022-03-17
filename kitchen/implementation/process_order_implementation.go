@@ -4,12 +4,13 @@ import (
 	"context"
 	"time"
 
+	"github.com/golang/glog"
+	"github.com/superryanguo/kitchen/clients"
 	"github.com/superryanguo/kitchen/cooks"
 	"github.com/superryanguo/kitchen/inmemorydb"
 	"github.com/superryanguo/kitchen/processes"
 	"github.com/superryanguo/kitchen/queue"
 	"github.com/superryanguo/kitchen/shared"
-	"github.com/golang/glog"
 )
 
 type processorderimplementation struct {
@@ -17,14 +18,16 @@ type processorderimplementation struct {
 	service           processes.OrderProcessUpdateService
 	orderQueueService inmemorydb.OrderRequestInMemoryService
 	messageQueueRepo  queue.QueueRepository
+	prometheusClient  clients.PrometheusClient
 }
 
-func NewProcessOrderImplementationService(cs cooks.Service, service processes.OrderProcessUpdateService, oq inmemorydb.OrderRequestInMemoryService, mrp queue.QueueRepository) processes.OrderProcessService {
+func NewProcessOrderImplementationService(cs cooks.Service, service processes.OrderProcessUpdateService, oq inmemorydb.OrderRequestInMemoryService, mrp queue.QueueRepository, prometheusClient clients.PrometheusClient) processes.OrderProcessService {
 	return &processorderimplementation{
 		cookservice:       cs,
 		service:           service,
 		orderQueueService: oq,
 		messageQueueRepo:  mrp,
+		prometheusClient:  prometheusClient,
 	}
 }
 
@@ -58,6 +61,7 @@ func (poi processorderimplementation) ProcessOrder(ctx context.Context, orderReq
 		}
 
 		poi.service.MarkOrderComplete(ctx, orderRequest.OrderUUID, cookID)
+		go poi.prometheusClient.RecordCompletedOrders()
 		go poi.messageQueueRepo.PublishOrderStatus(ctx, orderRequest.OrderUUID, shared.OrderStatusDelivered)
 		//Update the status to cook service via message queue
 
