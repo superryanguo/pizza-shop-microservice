@@ -11,7 +11,6 @@ import (
 	"github.com/go-redis/redis/v8"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/golang/glog"
-	"github.com/joho/godotenv"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/streadway/amqp"
@@ -41,10 +40,10 @@ func main() {
 	var db *sql.DB
 	{
 		var err error
-		err = godotenv.Load()
-		if err != nil {
-			glog.Fatalf("Unable to load environment variables")
-		}
+		//err = godotenv.Load()
+		//if err != nil {
+		//glog.Fatalf("Unable to load environment variables")
+		//}
 		// Initializing DB Constants
 		dbConnection := shared.DBConnection{
 			DBName:   os.Getenv("DB_NAME"),

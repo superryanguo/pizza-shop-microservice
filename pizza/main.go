@@ -16,7 +16,6 @@ import (
 	"github.com/superryanguo/pizza/pizza/services"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/joho/godotenv"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
@@ -47,10 +46,10 @@ func main() {
 	var db *sql.DB
 	{
 		var err error
-		err = godotenv.Load() //TODO: looks not necessary
-		if err != nil {
-			glog.Fatalf("Unable to load environment variables", err)
-		}
+		//err = godotenv.Load() //TODO: looks not necessary
+		//if err != nil {
+		//glog.Fatalf("Unable to load environment variables", err)
+		//}
 		// Initializing DB Constants
 		dbConnection := shared.DBConnection{
 			DBName:   os.Getenv("DB_NAME"),
